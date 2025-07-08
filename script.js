@@ -20,3 +20,43 @@ sunIcon.addEventListener("click", function () {
   body.classList.remove("light");
   body.classList.add("dark");
 });
+
+//
+//
+//Async function
+
+setTimeout(function(){console.log("Hei")}, 3000);
+
+console.log("Venter på svar...")
+
+//
+//const fruitBowl = ["Apple", "Banana", "Pineapple", "Passionfruit"];
+
+async function fetchingData(){
+  try{
+    const data = await fetch("Data.json");
+    console.log(data);
+
+    const response = await data.json();
+
+    console.log(response[1]);
+    const fruitBowl = response.join(",");
+    console.log(fruitBowl);
+
+    return fruitBowl;
+
+
+} catch {
+  console.log("Noe gikk galt..");
+  console.error(`${error}: Noe gikk galt`);
+  alert("Noe gikk galt. Prøv igjen senere!");
+}
+}
+
+fetchingData();
+
+//const displayData = document.querySelector("#displayData");
+//const p = document.createElement ("p");
+//p.textContent = fruitBowl;
+
+//displayData.appendChild(p);
