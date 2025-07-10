@@ -74,7 +74,7 @@ async function pokemonCard (){
 
   const data = await response.json();
   console.log(data);
-  console.log(data.stats[0].base_stat + "HP");
+  console.log(data.stats[0].base_stat + data.stats[0].stat.name);
 }
 
 pokemonCard();
